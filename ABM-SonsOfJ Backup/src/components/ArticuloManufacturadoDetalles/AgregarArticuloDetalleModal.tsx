@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Modal, Button, Form, Col, Image } from 'react-bootstrap';
 import Autosuggest from 'react-autosuggest';
 import { ArticuloManufacturadoDetalle } from '../../types/ArticuloManufacturadoDetalle';
@@ -76,14 +76,14 @@ const AgregarArticuloDetalleModal: React.FC<AgregarArticuloDetalleModalProps> = 
         </div>
     );
 
-    const onSuggestionSelected = (event: React.FormEvent<any>, { suggestion }: { suggestion: ArticuloInsumo }) => {
+    const onSuggestionSelected = (_event: React.FormEvent<any>, { suggestion }: { suggestion: ArticuloInsumo }) => {
         setArticuloInsumoSeleccionado(suggestion);
     };
 
     const inputProps = {
         placeholder: "Buscar artículo insumo",
         value: valorInput,
-        onChange: (e: React.ChangeEvent<any>, { newValue }: { newValue: string }) => {
+        onChange: (_e: React.ChangeEvent<any>, { newValue }: { newValue: string }) => {
             setValorInput(newValue);
         },
         onKeyPress: (e: React.KeyboardEvent<any>) => {
